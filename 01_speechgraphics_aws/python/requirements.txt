@@ -1,0 +1,11 @@
+boto3
+pyjwt
+Django
+warrant
+pynamodb
+gunicorn
+
+# development dependencies
+tox
+black
+flake8

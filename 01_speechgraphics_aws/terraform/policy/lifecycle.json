@@ -1,0 +1,11 @@
+{
+    "rules": [{
+        "rulePriority": 1,
+        "action": { "type": "expire" },
+        "selection": {
+            "tagStatus": "any",
+            "countType": "imageCountMoreThan",
+            "countNumber": 5
+        }
+    }]
+}

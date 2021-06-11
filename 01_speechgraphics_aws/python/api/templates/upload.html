@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<form class="form-signin" method="post" enctype="multipart/form-data">{% csrf_token %}
+    <h1 class="h3 mb-3 font-weight-normal">Upload file</h1>
+    <div class="custom-file">
+        <input type="file" name="file" class="custom-file-input" id="customFile" style="margin-bottom: 10px;" />
+        <label class="custom-file-label" for="customFile">Choose file</label>
+    </div>
+    
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+</form>
+{% endblock %}

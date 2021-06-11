@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>File Upload Demo</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+        <link rel="stylesheet" href="{% static 'api/css/global.css' %}" />
+    </head>
+    <body class="d-flex flex-column" style="min-height: 100vh">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">AWS File Upload Test</a>
+            {% if user.is_authenticated %}
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}">Index</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'upload' %}">Upload</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                </li>
+            </ul>
+            {% endif %}
+        </nav>
+        {% block content %}
+        {% endblock %}
+        <footer class="bg-dark text-light py-3 fixed-bottom">
+            <div class="container">
+                <p>Copyright &#169; 2021 Joseph Marsden. All rights reserved.</p>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,11 @@
+stages:
+  - test
+
+code-test:
+  image: python:3.9.1-buster
+  stage: test
+  before_script:
+    - python3 -m pip install tox
+  script:
+    - cd python
+    - tox -e py39

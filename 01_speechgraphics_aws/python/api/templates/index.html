@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<script>
+    // Please excuse the terrible code, I am NOT a frontend developer!
+    function download_file(id) {
+        $.ajax({
+            type: "GET",
+            url: `/file/${id}`,
+            success: function(data)
+            {
+                window.location.replace(data.url)
+            }
+        })
+    };
+
+    function delete_file(id) {
+        $.ajax({
+            type: "DELETE",
+            url: `/file/${id}`,
+            success: function(data)
+            {
+                window.location.reload()
+            }
+        })
+    };
+</script>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Owner</th>
+            <th scope="col">Filename</th>
+            <th scope="col">Public</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for r in results %}
+            <tr>
+                <th scope="row">{{r.id}}</th>
+                <td>{{r.user_id}}</td>
+                <td>{{r.filename}}</td>
+                <td>{{r.public}}</td>
+                <td>
+                    <button type="button" class="btn btn-primary" onclick="download_file('{{r.id}}')">Download</button>
+                    <button type="button" class="btn btn-danger" onclick="delete_file('{{r.id}}')">Delete</button>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,5 @@
+.venv
+.vscode
+.terraform
+*.tfstate.backup
+_build
